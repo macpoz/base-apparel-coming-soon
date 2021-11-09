@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+// Primary
+$desaturated-red = hsl(0, 36%, 70%)
+$soft-red = hsl(0, 93%, 68%)
+
+//Neutral
+
+$dark-grayish-red = hsl(0, 6%, 24%)
+
+// Gradients
+
+$gradient_1 = linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%))
+$gradient_2 = linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%))
+
+*
+  margin 0
+  padding 0
+  font-family: 'Josefin Sans', sans-serif;
+
+body
+  display flex
+  justify-content center
+  @media (min-width: 1460px)
+    height 100vh
+    align-items center
+
+.container
+  width 375px
+  height 800px
+  display flex
+  background-image $gradient_1
+  box-shadow 0 5px 15px 0 rgba($dark-grayish-red,.4)
+  @media (min-width: 1024px)
+    width 100%
+  @media (min-width: 1440px)
+    width 1440px
+
+.left-side
+  display flex
+  flex-direction column
+  align-items center
+  @media (min-width: 1024px)
+    background-image url("./images/bg-pattern-desktop.svg")
+    flex 1
+
+
+header
+  margin-top 2rem
+  @media (min-width: 1024px)
+    width 450px
+    margin-top 4rem
+
+  > img
+    margin-left 2rem
+    height 21px
+    @media (min-width: 1024px)
+      margin-left 0
+      height auto
+
+  .hero-mobile
+    margin-top 2rem
+
+main
+  margin-top 4rem
+  padding 0 2rem
+  @media (min-width: 1024px)
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    height 100%
+    //width 54%
+    max-width 450px
+    padding 0
+    //margin-top 0
+    //margin-right 4rem
+    margin 0 auto
+
+  h1
+    font-size 40px
+    text-align center
+    text-transform uppercase
+    letter-spacing 0.3em
+    font-weight 300
+    color $desaturated-red
+    @media (min-width: 1024px)
+      text-align left
+      font-size 64px
+
+    span
+      display block
+      font-weight 600
+      color $dark-grayish-red
+      line-height 1.1em
+
+  p
+    margin-top 1.5rem
+    color $desaturated-red
+    text-align center
+    line-height 1.4em
+    font-size 14px
+    letter-spacing 0.02em
+    @media (min-width: 1024px)
+      text-align left
+      font-size 16px
+      line-height 1.8em
+
+form
+  margin-top 2rem
+  width 100%
+
+  div
+    display flex
+    justify-content center
+    align-items center
+    border-left 1px solid rgba($desaturated-red,.7)
+    border-top 1px solid rgba($desaturated-red,.7)
+    border-bottom 1px solid rgba($desaturated-red,.7)
+
+    border-radius 2rem 0 0 2rem
+    position relative
+    margin-right 3rem
+    margin-bottom 1rem
+
+    input
+      font-size 16px
+      padding .7rem 0 .7rem 1rem
+      border none
+      width 100%
+      background-color transparent
+      color $dark-grayish-red
+
+      &::-webkit-input-placeholder
+        color $desaturated-red
+        opacity 60%
+
+      &:focus
+        outline none
+
+      @media (min-width: 1024px)
+        padding 1.1rem 0 1.1rem 1.5rem
+
+    span
+      margin-right 2rem
+
+      &[x-cloak] { display: none !important; }
+
+      @media (min-width: 1024px)
+        margin-right 4rem
+
+
+    button
+      padding .7rem 1.5rem
+      border-radius 2rem
+      background-image $gradient_2
+      border none
+      cursor pointer
+      position absolute
+      right -40px
+      box-shadow 3px 6px 20px -3px $desaturated-red
+      &:hover
+        background-color $desaturated-red
+        background-blend-mode screen
+
+      @media (min-width: 1024px)
+        padding 1rem 2.7rem
+        right -54px
+
+  > span
+    margin-left 1.5rem
+    color $soft-red
+    font-size 15px
+
+.hero-mobile
+  display block
+  @media (min-width: 1024px)
+    display none
+
+aside
+  display none
+  @media (min-width: 1024px)
+    display block
+    width 50%
+  @media (min-width: 1440px)
+    width 610px
+
+  .hero-desktop
+    max-height 800px
+
+
+.border-red
+  border-left 2px solid $soft-red
+  border-top 2px solid $soft-red
+  border-bottom 2px solid $soft-red
+  border-right none

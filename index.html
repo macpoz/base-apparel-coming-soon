@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="left-side">
+        <header>
+            <img src="./images/logo.svg" alt="">
+
+            <div class="hero-mobile">
+                <img src="./images/hero-mobile.jpg" alt="">
+            </div>
+        </header>
+        <main>
+            <h1>We're <span>coming soon</span></h1>
+
+            <p>Hello fellow shoppers! We're currently building our new fashion store.
+                Add your email below to stay up-to-date with announcements and our launch deals.</p>
+
+            <form action="#"
+                  method="get"
+                  x-data="{
+                      email: '',
+                      message: '',
+                      validated: true,
+                      validate(){
+                        if (this.email.length === 0){
+                           this.validated = false
+                           this.message = 'Please provide a valid email'
+                        }else if(!/.+\@.+\..+/.test(this.email)){
+                            this.validated = false
+                            this.message = 'Please provide a valid email'
+                        }else{
+                            this.validated = true
+                            this.message = ''
+                            $el.submit()
+                        }
+                      }
+                   }"
+                  @submit.prevent="validate()"
+            >
+                <div id="email-container" :class="validated ? '' : 'border-red'">
+                    <input x-model="email" type="text" value="" placeholder="Email Address">
+                    <span id="email-icon-error" x-show="!validated" x-cloak>
+                        <img src="./images/icon-error.svg" alt="">
+                    </span>
+                    <button title="Submit" aria-label="Submit">
+                        <img src="./images/icon-arrow.svg" alt="">
+                    </button>
+                </div>
+                <span x-text="message"></span>
+            </form>
+        </main>
+
+    </div>
+
+    <aside>
+        <div class="hero-desktop">
+            <img src="./images/hero-desktop.jpg" alt="">
+        </div>
+    </aside>
+
+</div>
+
+</body>
+</html>
